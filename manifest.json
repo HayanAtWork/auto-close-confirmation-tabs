@@ -1,21 +1,28 @@
 {
   "manifest_version": 3,
-  "name": "Auto Close Snowflake dbt Login Confirmation",
-  "version": "1.0.0",
-  "description": "Closes the Snowflake dbt browser authentication confirmation tab after login succeeds.",
-  "content_scripts": [
-    {
-      "matches": [
-        "http://*/*",
-        "https://*/*"
-      ],
-      "js": [
-        "content.js"
-      ],
-      "run_at": "document_idle"
-    }
+  "name": "Auto Close Confirmation Tabs",
+  "version": "1.1.0",
+  "description": "Closes configured confirmation tabs after matched text appears and a countdown finishes.",
+  "permissions": [
+    "scripting",
+    "storage"
+  ],
+  "optional_permissions": [
+    "tabs"
+  ],
+  "optional_host_permissions": [
+    "https://*/*"
   ],
   "background": {
     "service_worker": "background.js"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
   }
 }
