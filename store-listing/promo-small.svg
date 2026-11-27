@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="280" viewBox="0 0 440 280">
+  <rect width="440" height="280" fill="#162b3d"/>
+  <rect x="36" y="36" width="368" height="208" rx="20" fill="#fff"/>
+  <rect x="36" y="36" width="368" height="54" rx="20" fill="#256382"/>
+  <text x="220" y="71" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#fff">Confirmation Tab</text>
+  <text x="220" y="145" text-anchor="middle" font-family="Arial,sans-serif" font-size="25" font-weight="700" fill="#162b3d">Closing in 8 seconds</text>
+  <rect x="130" y="176" width="180" height="36" rx="18" fill="#d64045"/>
+  <text x="220" y="201" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#fff">Configured countdown</text>
+</svg>

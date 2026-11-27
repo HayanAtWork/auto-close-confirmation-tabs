@@ -1,6 +1,19 @@
 # Auto Close Confirmation Tabs
 
+[![GitHub release](https://img.shields.io/github/v/release/HayanAtWork/auto-close-confirmation-tabs)](https://github.com/HayanAtWork/auto-close-confirmation-tabs/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Tests](https://img.shields.io/badge/tests-node%20--test-green.svg)](tests/extension.test.js)
+
+**[Website](https://hayanatwork.github.io/auto-close-confirmation-tabs/)** |
+[Privacy](PRIVACY.md) |
+[Support](SUPPORT.md) |
+[Changelog](CHANGELOG.md)
+
 Chrome extension that automatically closes an HTTPS authentication tab after configured confirmation text appears and a countdown finishes.
+
+## Download
+
+Visit the [Chrome Web Store listing](https://chrome.google.com/webstore/detail/auto-close-confirmation-tabs) once publication is complete. Until then, install the latest release as an unpacked extension from the [releases page](https://github.com/HayanAtWork/auto-close-confirmation-tabs/releases).
 
 ## Configure
 
@@ -37,6 +50,7 @@ Run the automated checks with `node --test tests/extension.test.js`.
 - Suggested listing description: “Automatically close browser authentication tabs after a confirmation message and a countdown. Configure hostnames, text, and delays, or select text from an open tab. Site access is requested only for chosen hostnames; page text is checked locally and is not sent to the developer or third parties.”
 - Create the listing in the Chrome Web Store Developer Dashboard and fill out the single-purpose, privacy, and data-use disclosures accurately.
 - After publishing this repository publicly, use `https://github.com/HayanAtWork/auto-close-confirmation-tabs/blob/main/PRIVACY.md` in the privacy-policy field.
-- Provide listing screenshots, a support contact/URL, and any required promotional images in the dashboard.
+- Use the 1280×800 screenshots and 440×280/1400×560 promotional assets in [store-listing/png](store-listing/png).
+- Provide a support URL: https://github.com/HayanAtWork/auto-close-confirmation-tabs/blob/main/SUPPORT.md
 - Test the packaged extension in Chrome, then upload a ZIP with `manifest.json` and the extension files at its root.
 - Explain the `scripting` and `storage` permissions, optional temporary `tabs` access for the tab picker, and site access requested only for chosen hostnames.

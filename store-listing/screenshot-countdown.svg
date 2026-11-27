@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800">
+  <rect width="1280" height="800" fill="#eef4f7"/>
+  <rect x="100" y="90" width="1080" height="620" rx="22" fill="#fff" stroke="#c8d8df" stroke-width="3"/>
+  <rect x="100" y="90" width="1080" height="68" rx="22" fill="#fff"/>
+  <circle cx="138" cy="124" r="8" fill="#d64045"/>
+  <circle cx="166" cy="124" r="8" fill="#f5be4b"/>
+  <circle cx="194" cy="124" r="8" fill="#52b080"/>
+  <text x="260" y="132" font-family="Arial,sans-serif" font-size="20" fill="#516773">auth.example.com/authentication</text>
+  <text x="180" y="310" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="700" fill="#162b3d" transform="translate(460 0)">Authentication complete</text>
+  <text x="460" y="370" text-anchor="middle" font-family="Arial,sans-serif" font-size="26" fill="#516773">Your identity was confirmed.</text>
+  <rect x="720" y="510" width="390" height="118" rx="12" fill="#202124"/>
+  <text x="915" y="558" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" fill="#fff">Closing this tab in</text>
+  <text x="915" y="605" text-anchor="middle" font-family="Arial,sans-serif" font-size="38" font-weight="700" fill="#fff">8 seconds</text>
+</svg>

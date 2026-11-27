@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#162b3d">
+    <meta name="description" content="Close configured confirmation and authentication tabs after a visible countdown.">
+    <title>Auto Close Confirmation Tabs</title>
+    <style>
+      :root { color-scheme: light; --ink:#162b3d; --accent:#256382; --bg:#eef4f7; }
+      * { box-sizing:border-box; }
+      body { margin:0; font:16px/1.6 system-ui,sans-serif; color:var(--ink); background:var(--bg); }
+      header { background:linear-gradient(135deg,#162b3d,#256382); color:white; padding:72px 24px; }
+      main, header > div { max-width:960px; margin:auto; }
+      h1 { font-size:clamp(42px,8vw,72px); line-height:1.05; margin:0 0 16px; }
+      h2 { font-size:32px; }
+      header p { max-width:670px; font-size:20px; }
+      .actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:28px; }
+      .button { display:inline-block; border-radius:6px; padding:10px 16px; color:white; background:#d64045; text-decoration:none; font-weight:700; }
+      .button.secondary { background:white; color:var(--ink); }
+      main { padding:48px 24px 72px; }
+      .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; }
+      article { background:white; border:1px solid #d8e3e8; border-radius:10px; padding:20px; }
+      footer { border-top:1px solid #d8e3e8; padding:24px; text-align:center; }
+      footer a { color:var(--ink); }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Auto Close Confirmation Tabs</h1>
+        <p>Automatically close login and confirmation tabs after the text you choose appears and a countdown finishes.</p>
+        <div class="actions">
+          <a class="button" href="https://github.com/HayanAtWork/auto-close-confirmation-tabs/releases">Download latest release</a>
+          <a class="button secondary" href="https://github.com/HayanAtWork/auto-close-confirmation-tabs">View source</a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <h2>Useful for any confirmation page</h2>
+      <div class="grid">
+        <article><h3>Multiple rules</h3><p>Add separate hostname and confirmation-text rules for different services.</p></article>
+        <article><h3>Your countdown</h3><p>Use the 3–20 second slider to choose how long to wait before closing.</p></article>
+        <article><h3>Selected text</h3><p>Pick an open HTTPS tab and let it fill in the hostname and selected confirmation text.</p></article>
+        <article><h3>Local and limited</h3><p>The extension processes page text locally and requests access only for configured hostnames.</p></article>
+      </div>
+    </main>
+    <footer>
+      <a href="https://github.com/HayanAtWork/auto-close-confirmation-tabs/blob/main/PRIVACY.md">Privacy</a> ·
+      <a href="https://github.com/HayanAtWork/auto-close-confirmation-tabs/blob/main/SUPPORT.md">Support</a> ·
+      <a href="https://github.com/HayanAtWork/auto-close-confirmation-tabs">GitHub</a>
+    </footer>
+  </body>
+</html>

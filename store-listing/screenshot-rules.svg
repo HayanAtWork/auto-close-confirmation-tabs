@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800">
+  <rect width="1280" height="800" fill="#eef4f7"/>
+  <rect x="80" y="70" width="1120" height="660" rx="18" fill="#fff" stroke="#c8d8df" stroke-width="3"/>
+  <rect x="80" y="70" width="1120" height="72" rx="18" fill="#162b3d"/>
+  <text x="120" y="118" font-family="Arial,sans-serif" font-size="34" font-weight="700" fill="#fff">Auto Close Confirmation Tabs</text>
+  <text x="120" y="190" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#162b3d">Saved rules</text>
+  <rect x="120" y="215" width="1040" height="104" rx="10" fill="#f8fafb" stroke="#d8e3e8"/>
+  <text x="150" y="258" font-family="Arial,sans-serif" font-size="24" fill="#162b3d">auth.example.com  ·  8 seconds</text>
+  <text x="150" y="292" font-family="Arial,sans-serif" font-size="20" fill="#516773">Login confirmed</text>
+  <rect x="920" y="237" width="95" height="46" rx="6" fill="#256382"/>
+  <text x="942" y="267" font-family="Arial,sans-serif" font-size="18" fill="#fff">Edit</text>
+  <rect x="1028" y="237" width="105" height="46" rx="6" fill="#d64045"/>
+  <text x="1044" y="267" font-family="Arial,sans-serif" font-size="18" fill="#fff">Remove</text>
+  <text x="120" y="370" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#162b3d">Add a rule</text>
+  <text x="120" y="416" font-family="Arial,sans-serif" font-size="20" fill="#516773">Website hostname</text>
+  <rect x="120" y="432" width="1040" height="54" rx="6" fill="#fff" stroke="#9bb0ba" stroke-width="2"/>
+  <text x="140" y="466" font-family="Arial,sans-serif" font-size="20" fill="#162b3d">auth.example.com</text>
+  <text x="120" y="526" font-family="Arial,sans-serif" font-size="20" fill="#516773">Close after 8 seconds</text>
+  <rect x="120" y="548" width="1040" height="12" rx="6" fill="#d8e3e8"/>
+  <rect x="120" y="548" width="520" height="12" rx="6" fill="#256382"/>
+  <circle cx="640" cy="554" r="15" fill="#256382"/>
+  <rect x="120" y="600" width="170" height="54" rx="6" fill="#d64045"/>
+  <text x="150" y="634" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#fff">Add rule</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800">
+  <rect width="1280" height="800" fill="#162b3d"/>
+  <rect x="78" y="70" width="1124" height="660" rx="18" fill="#fff"/>
+  <text x="120" y="130" font-family="Arial,sans-serif" font-size="34" font-weight="700" fill="#162b3d">Start from an open tab</text>
+  <text x="120" y="180" font-family="Arial,sans-serif" font-size="22" fill="#516773">Select the confirmation text on the page, then choose the tab.</text>
+  <text x="120" y="236" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#162b3d">Open HTTPS tab</text>
+  <rect x="120" y="252" width="1040" height="62" rx="8" fill="#fff" stroke="#9bb0ba" stroke-width="2"/>
+  <text x="145" y="290" font-family="Arial,sans-serif" font-size="22" fill="#162b3d">Authentication complete — auth.example.com</text>
+  <rect x="120" y="356" width="1040" height="166" rx="10" fill="#eef4f7" stroke="#d8e3e8"/>
+  <text x="150" y="398" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#162b3d">Selected text</text>
+  <rect x="150" y="420" width="980" height="74" rx="6" fill="#fff"/>
+  <text x="170" y="464" font-family="Arial,sans-serif" font-size="24" fill="#162b3d">Login confirmed</text>
+  <rect x="120" y="566" width="318" height="64" rx="8" fill="#256382"/>
+  <text x="150" y="606" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#fff">Use tab and selected text</text>
+  <text x="120" y="684" font-family="Arial,sans-serif" font-size="18" fill="#516773">Temporary tab access is removed after the list is loaded.</text>
+</svg>
