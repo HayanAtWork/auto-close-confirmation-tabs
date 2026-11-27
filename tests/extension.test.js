@@ -217,10 +217,11 @@ function optionsHarness() {
   const selectors = [
     "#settings-form", "#host", "#text", "#delay", "#delay-value", "#status",
     "#rules", "#empty-rules", "#tabs", "#load-tabs", "#use-tab", "#save",
-    "#cancel-edit", "#form-heading"
+    "#cancel-edit", "#form-heading", "#tab-sort"
   ];
   const elements = new Map(selectors.map((selector) => [selector, new Element()]));
   elements.get("#delay").value = "3";
+  elements.get("#tab-sort").value = "title";
   const document = {
     querySelector: (selector) => elements.get(selector),
     createElement: () => new Element()
@@ -256,7 +257,12 @@ function optionsHarness() {
       }
     },
     tabs: { async query() {
-      return [{ id: 1, title: "Confirmation", url: "https://auth.example.com/complete" }];
+      return [
+        { id: 1, title: "Zulu confirmation", url: "https://auth.example.com/zulu", index: 3, windowId: 1, active: false },
+        { id: 2, title: "Alpha login", url: "https://auth.example.com/alpha", index: 1, windowId: 1, active: false },
+        { id: 3, title: "", url: "https://auth.example.com/untitled", index: 4, windowId: 1, active: false },
+        { id: 4, title: "Bravo page", url: "https://auth.example.com/bravo", index: 2, windowId: 1, active: true }
+      ];
     } },
     scripting: { async executeScript() {
       return [{ result: { host: "auth.example.com", text: "Login\nconfirmed" } }];
@@ -283,6 +289,33 @@ test("tab picker reads selected text and releases temporary permissions", async 
   assert.equal(app.elements.get("#host").value, "auth.example.com");
   assert.equal(app.elements.get("#text").value, "Login confirmed");
   assert.equal(app.grants.has("https://auth.example.com/*"), false);
+});
+
+test("tab picker sorts by title and from the current tab", async () => {
+  const app = optionsHarness();
+  await flush();
+  await app.elements.get("#load-tabs").listeners.click();
+  const titleOptions = app.elements.get("#tabs").children
+    .slice(1)
+    .map((option) => option.textContent);
+  assert.deepEqual(titleOptions, [
+    "Alpha login — auth.example.com",
+    "Bravo page — auth.example.com",
+    "Zulu confirmation — auth.example.com",
+    "Untitled — auth.example.com"
+  ]);
+
+  app.elements.get("#tab-sort").value = "position";
+  app.elements.get("#tab-sort").listeners.change();
+  const positionOptions = app.elements.get("#tabs").children
+    .slice(1)
+    .map((option) => option.textContent);
+  assert.equal(positionOptions[0], "Bravo page — auth.example.com");
+  assert.deepEqual(positionOptions.slice(1), [
+    "Zulu confirmation — auth.example.com",
+    "Untitled — auth.example.com",
+    "Alpha login — auth.example.com"
+  ]);
 });
 
 test("multiple rules sharing a host retain permission until the final removal", async () => {

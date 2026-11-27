@@ -7,6 +7,7 @@ const status = document.querySelector("#status");
 const rulesList = document.querySelector("#rules");
 const emptyRules = document.querySelector("#empty-rules");
 const tabsSelect = document.querySelector("#tabs");
+const tabSortSelect = document.querySelector("#tab-sort");
 const loadTabsButton = document.querySelector("#load-tabs");
 const useTabButton = document.querySelector("#use-tab");
 const saveButton = document.querySelector("#save");
@@ -16,6 +17,68 @@ const formHeading = document.querySelector("#form-heading");
 let rules = [];
 let editingId;
 let openTabs = [];
+
+const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
+
+const sortTabs = (tabs, sortMode) => {
+  const sorted = [...tabs];
+  if (sortMode === "position") {
+    const active = sorted.find((tab) => tab.active);
+    if (active) {
+      const activeWindow = active.windowId;
+      const activeIndex = active.index;
+      sorted.sort((left, right) => {
+        if (left.id === active.id) return -1;
+        if (right.id === active.id) return 1;
+        if (left.windowId !== right.windowId) return (left.windowId ?? 0) - (right.windowId ?? 0);
+        if (left.windowId === activeWindow) {
+          const leftDistance = left.index >= activeIndex
+            ? left.index - activeIndex
+            : sorted.filter((tab) =>
+              tab.windowId === activeWindow && tab.index >= activeIndex
+            ).length + activeIndex - left.index;
+          const rightDistance = right.index >= activeIndex
+            ? right.index - activeIndex
+            : sorted.filter((tab) =>
+              tab.windowId === activeWindow && tab.index >= activeIndex
+            ).length + activeIndex - right.index;
+          if (leftDistance !== rightDistance) return leftDistance - rightDistance;
+        }
+        return (left.index ?? 0) - (right.index ?? 0);
+      });
+      return sorted;
+    }
+  }
+
+  return sorted.sort((left, right) => {
+    const leftTitle = normalizeText(left.title ?? "");
+    const rightTitle = normalizeText(right.title ?? "");
+    if (!leftTitle && rightTitle) return 1;
+    if (leftTitle && !rightTitle) return -1;
+    const titleOrder = collator.compare(leftTitle, rightTitle);
+    if (titleOrder !== 0) return titleOrder;
+    if (left.windowId !== right.windowId) return (left.windowId ?? 0) - (right.windowId ?? 0);
+    return (left.index ?? 0) - (right.index ?? 0);
+  });
+};
+
+const populateTabPicker = () => {
+  tabsSelect.replaceChildren();
+  const placeholder = document.createElement("option");
+  placeholder.value = "";
+  placeholder.textContent = openTabs.length ? "Choose a tab" : "No HTTPS tabs found";
+  tabsSelect.appendChild(placeholder);
+  for (const tab of sortTabs(openTabs, tabSortSelect.value)) {
+    const option = document.createElement("option");
+    option.value = String(tab.id);
+    option.textContent = `${tab.title || "Untitled"} — ${tab.host}`;
+    tabsSelect.appendChild(option);
+  }
+  tabsSelect.disabled = openTabs.length === 0;
+  useTabButton.disabled = openTabs.length === 0;
+};
+
+tabSortSelect?.addEventListener("change", populateTabPicker);
 
 const getOrigin = (host) => `https://${host}/*`;
 const normalizeText = (text) => text.replace(/\s+/g, " ").trim();
@@ -135,20 +198,15 @@ loadTabsButton.addEventListener("click", async () => {
       const tabs = await chrome.tabs.query({});
       openTabs = tabs
         .filter((tab) => typeof tab.id === "number" && tab.url?.startsWith("https://"))
-        .map((tab) => ({ id: tab.id, title: tab.title, host: new URL(tab.url).hostname }));
-      tabsSelect.replaceChildren();
-      const placeholder = document.createElement("option");
-      placeholder.value = "";
-      placeholder.textContent = openTabs.length ? "Choose a tab" : "No HTTPS tabs found";
-      tabsSelect.appendChild(placeholder);
-      for (const tab of openTabs) {
-        const option = document.createElement("option");
-        option.value = String(tab.id);
-        option.textContent = `${tab.title || "Untitled"} — ${tab.host}`;
-        tabsSelect.appendChild(option);
-      }
-      tabsSelect.disabled = openTabs.length === 0;
-      useTabButton.disabled = openTabs.length === 0;
+        .map((tab) => ({
+          id: tab.id,
+          title: tab.title,
+          host: new URL(tab.url).hostname,
+          index: tab.index,
+          windowId: tab.windowId,
+          active: tab.active
+        }));
+      populateTabPicker();
     } finally {
       if (!(await chrome.permissions.remove({ permissions: ["tabs"] }))) {
         throw new Error("Could not revoke temporary tab access; remove it in Chrome's extension settings.");

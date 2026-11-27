@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.2
+
+- Added page-title and current-tab-position sorting to the open-tab picker.
+
 ## 1.1.1
 
 - Added a general-purpose store name and description.

@@ -22,7 +22,7 @@ Chrome Web Store publication is in progress. Until it is published, install the 
 3. Choose a delay from 3 to 20 seconds and save the rule. Chrome asks for access to that HTTPS hostname.
 4. Add as many rules as needed. Edit or remove individual rules from the list.
 
-Alternatively, select confirmation text on an open HTTPS page. In the options, click **Load open tabs**, choose that tab, and click **Use tab and selected text**. Review the populated form and save it. Chrome asks for temporary access to tab titles and URLs to list the tabs, and site access to read the selected text. If that hostname has no saved rule, site access is revoked after reading the selection and requested again when saving.
+Alternatively, select confirmation text on an open HTTPS page. In the options, click **Load open tabs**, choose a sort mode for page title or position from the current tab, select that tab, and click **Use tab and selected text**. Review the populated form and save it. Chrome asks for temporary access to tab titles and URLs to list the tabs, and site access to read the selected text. If that hostname has no saved rule, site access is revoked after reading the selection and requested again when saving.
 
 After saving, open or refresh the authentication tab. The extension watches for the text for up to 60 seconds after the page loads. When the text appears, the page displays the countdown before it closes. If several rules match the same page, the first saved matching rule determines the delay. Removing the last rule for a hostname revokes its site access.
 
