@@ -13,7 +13,7 @@ Chrome extension that automatically closes an HTTPS authentication tab after con
 
 ## Download
 
-Visit the [Chrome Web Store listing](https://chrome.google.com/webstore/detail/auto-close-confirmation-tabs) once publication is complete. Until then, install the latest release as an unpacked extension from the [releases page](https://github.com/HayanAtWork/auto-close-confirmation-tabs/releases).
+Chrome Web Store publication is in progress. Until it is published, install the latest [GitHub release](https://github.com/HayanAtWork/auto-close-confirmation-tabs/releases) as an unpacked extension.
 
 ## Configure
 
